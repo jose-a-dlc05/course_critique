@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model colleges {
+  college_id  Int       @id @default(autoincrement())
+  name        String    @db.VarChar(255)
+  location    String?
+  description String?
+  courses     courses[]
+}
+
+model courses {
+  course_id   Int       @id @default(autoincrement())
+  college_id  Int
+  title       String    @db.VarChar(255)
+  description String?
+  instructor  String?   @db.VarChar(255)
+  colleges    colleges  @relation(fields: [college_id], references: [college_id], onDelete: Cascade, onUpdate: NoAction)
+  reviews     reviews[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model reviews {
+  review_id  Int       @id @default(autoincrement())
+  course_id  Int
+  user_id    Int
+  rating     Int
+  comment    String?
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+  courses    courses   @relation(fields: [course_id], references: [course_id], onDelete: Cascade, onUpdate: NoAction)
+  users      users     @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model users {
+  user_id       Int       @id @default(autoincrement())
+  username      String    @unique @db.VarChar(255)
+  email         String    @unique @db.VarChar(255)
+  password_hash String
+  created_at    DateTime? @default(now()) @db.Timestamp(6)
+  last_login    DateTime? @db.Timestamp(6)
+  reviews       reviews[]
+}
