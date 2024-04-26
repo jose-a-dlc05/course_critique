@@ -7,7 +7,9 @@
 		"build": "npx tsc",
 		"start": "NODE_ENV=production node ./build/index",
 		"dev": "nodemon src/index.ts",
-		"watch-ts": "tsc -w"
+		"watch-ts": "tsc -w",
+		"prisma-migrate": "npx prisma migrate dev --name",
+		"prisma-seed": "ts-node prisma/seed.ts"
 	},
 	"author": "Jose De La Cruz",
 	"license": "MIT",
@@ -20,8 +22,10 @@
 	"devDependencies": {
 		"@types/cors": "^2.8.17",
 		"@types/express": "^4.17.21",
+		"@types/morgan": "^1.9.9",
 		"@types/node": "^20.11.27",
 		"colors": "^1.4.0",
+		"morgan": "^1.10.0",
 		"nodemon": "^3.1.0",
 		"prisma": "^5.12.1",
 		"ts-node": "^10.9.2",

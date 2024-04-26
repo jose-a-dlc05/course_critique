@@ -25,7 +25,6 @@ model courses {
   reviews     reviews[]
 }
 
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model reviews {
   review_id  Int       @id @default(autoincrement())
   course_id  Int
