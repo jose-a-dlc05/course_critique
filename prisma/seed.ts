@@ -5,6 +5,7 @@ async function main() {
 	await prisma.$transaction([
 		prisma.users.create({
 			data: {
+				user_id: 1,
 				username: 'jkuna0',
 				email: 'nchick0@cnet.com',
 				password_hash:
@@ -13,6 +14,7 @@ async function main() {
 		}),
 		prisma.users.create({
 			data: {
+				user_id: 2,
 				username: 'wbartul1',
 				email: 'celliston1@yahoo.com',
 				password_hash:
@@ -21,6 +23,7 @@ async function main() {
 		}),
 		prisma.users.create({
 			data: {
+				user_id: 3,
 				username: 'kharberer2',
 				email: 'bcowling2@ca.gov',
 				password_hash:
@@ -29,6 +32,7 @@ async function main() {
 		}),
 		prisma.users.create({
 			data: {
+				user_id: 4,
 				username: 'rgonthard3',
 				email: 'nvaleri3@comcast.net',
 				password_hash:
@@ -37,6 +41,7 @@ async function main() {
 		}),
 		prisma.users.create({
 			data: {
+				user_id: 5,
 				username: 'croll4',
 				email: 'thunnybun4@nih.gov',
 				password_hash:
@@ -45,6 +50,7 @@ async function main() {
 		}),
 		prisma.colleges.create({
 			data: {
+				college_id: 1,
 				name: 'Harvard University',
 				location: 'MA',
 				description: 'Private Ivy League university',
@@ -52,6 +58,7 @@ async function main() {
 		}),
 		prisma.colleges.create({
 			data: {
+				college_id: 2,
 				name: 'University of California',
 				location: 'CA',
 				description: 'Top-ranked public university',
@@ -59,6 +66,7 @@ async function main() {
 		}),
 		prisma.colleges.create({
 			data: {
+				college_id: 3,
 				name: 'Stanford University',
 				location: 'CA',
 				description: 'Top-ranked public university',
@@ -66,6 +74,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 1,
 				college_id: 1,
 				title: 'Introduction to Computer Science',
 				description:
@@ -75,15 +84,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
-				college_id: 1,
-				title: 'Introduction to Computer Science',
-				description:
-					'An introduction to the intellectual enterprises of computer science and the art of programming.',
-				instructor: 'David Malan',
-			},
-		}),
-		prisma.courses.create({
-			data: {
+				course_id: 2,
 				college_id: 1,
 				title: 'Principles of Economics',
 				description:
@@ -93,6 +94,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 3,
 				college_id: 1,
 				title: 'Philosophy and Ethics',
 				description:
@@ -102,6 +104,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 4,
 				college_id: 1,
 				title: 'Genetics and Genomics',
 				description:
@@ -111,6 +114,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 5,
 				college_id: 1,
 				title: 'Artificial Intelligence',
 				description:
@@ -120,6 +124,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 6,
 				college_id: 2,
 				title: 'Environmental Science',
 				description:
@@ -129,6 +134,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 7,
 				college_id: 2,
 				title: 'Molecular Biology',
 				description: 'Study of the molecular basis of biological activity.',
@@ -137,6 +143,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 8,
 				college_id: 2,
 				title: 'Data Structures',
 				description: 'Introduction to data structures and their applications.',
@@ -145,6 +152,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 9,
 				college_id: 2,
 				title: 'Political Science',
 				description:
@@ -154,6 +162,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 10,
 				college_id: 2,
 				title: 'Psychology',
 				description: 'Introduction to theories and concepts in psychology.',
@@ -162,6 +171,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 11,
 				college_id: 3,
 				title: 'Machine Learning',
 				description:
@@ -171,6 +181,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 12,
 				college_id: 3,
 				title: 'Theoretical Physics',
 				description:
@@ -180,6 +191,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 13,
 				college_id: 3,
 				title: 'Comparative Literature',
 				description: 'Study of world literature and its cultural impact.',
@@ -188,6 +200,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 14,
 				college_id: 3,
 				title: 'Human-Computer Interaction',
 				description: 'Design and evaluation of user interfaces.',
@@ -196,6 +209,7 @@ async function main() {
 		}),
 		prisma.courses.create({
 			data: {
+				course_id: 15,
 				college_id: 3,
 				title: 'Entrepreneurship',
 				description:
@@ -205,6 +219,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 1,
 				course_id: 1,
 				user_id: 1,
 				rating: 5,
@@ -214,6 +229,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 2,
 				course_id: 1,
 				user_id: 2,
 				rating: 4,
@@ -222,6 +238,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 3,
 				course_id: 2,
 				user_id: 3,
 				rating: 5,
@@ -230,6 +247,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 4,
 				course_id: 2,
 				user_id: 4,
 				rating: 4,
@@ -238,6 +256,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 5,
 				course_id: 3,
 				user_id: 5,
 				rating: 5,
@@ -246,6 +265,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 6,
 				course_id: 3,
 				user_id: 1,
 				rating: 4,
@@ -254,6 +274,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 7,
 				course_id: 4,
 				user_id: 2,
 				rating: 3,
@@ -263,6 +284,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 8,
 				course_id: 4,
 				user_id: 3,
 				rating: 5,
@@ -272,6 +294,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 9,
 				course_id: 5,
 				user_id: 4,
 				rating: 4,
@@ -280,6 +303,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 10,
 				course_id: 5,
 				user_id: 5,
 				rating: 5,
@@ -289,6 +313,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 11,
 				course_id: 6,
 				user_id: 1,
 				rating: 4,
@@ -297,6 +322,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 12,
 				course_id: 6,
 				user_id: 2,
 				rating: 5,
@@ -305,6 +331,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 13,
 				course_id: 7,
 				user_id: 3,
 				rating: 3,
@@ -313,6 +340,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 14,
 				course_id: 7,
 				user_id: 4,
 				rating: 4,
@@ -321,6 +349,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 15,
 				course_id: 8,
 				user_id: 5,
 				rating: 5,
@@ -329,6 +358,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 16,
 				course_id: 8,
 				user_id: 1,
 				rating: 4,
@@ -337,6 +367,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 17,
 				course_id: 9,
 				user_id: 2,
 				rating: 3,
@@ -345,6 +376,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 18,
 				course_id: 9,
 				user_id: 3,
 				rating: 4,
@@ -353,6 +385,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 19,
 				course_id: 10,
 				user_id: 4,
 				rating: 5,
@@ -362,6 +395,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 20,
 				course_id: 10,
 				user_id: 5,
 				rating: 4,
@@ -370,6 +404,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 21,
 				course_id: 11,
 				user_id: 1,
 				rating: 5,
@@ -378,6 +413,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 22,
 				course_id: 11,
 				user_id: 2,
 				rating: 5,
@@ -386,6 +422,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 23,
 				course_id: 12,
 				user_id: 3,
 				rating: 4,
@@ -394,6 +431,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 24,
 				course_id: 12,
 				user_id: 4,
 				rating: 4,
@@ -402,6 +440,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 25,
 				course_id: 13,
 				user_id: 5,
 				rating: 3,
@@ -410,6 +449,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 26,
 				course_id: 13,
 				user_id: 1,
 				rating: 4,
@@ -418,6 +458,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 27,
 				course_id: 14,
 				user_id: 2,
 				rating: 4,
@@ -426,6 +467,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 28,
 				course_id: 14,
 				user_id: 3,
 				rating: 5,
@@ -434,6 +476,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 29,
 				course_id: 15,
 				user_id: 4,
 				rating: 5,
@@ -443,6 +486,7 @@ async function main() {
 		}),
 		prisma.reviews.create({
 			data: {
+				review_id: 30,
 				course_id: 15,
 				user_id: 5,
 				rating: 4,
