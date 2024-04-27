@@ -1,15 +1,18 @@
 import express from 'express';
 const router = express.Router();
-import {
-	createCollege,
-	getCollege,
-	getColleges,
-	updateCollege,
-	deleteCollege,
-} from '../controllers/College';
+import CollegeController from '../controllers/College';
 
-router.route('/').get(getColleges).post(createCollege);
+const collegeController = new CollegeController();
 
-router.route('/:id').get(getCollege).patch(updateCollege).delete(deleteCollege);
+router
+	.route('/')
+	.get(collegeController.getColleges)
+	.post(collegeController.createCollege);
+
+router
+	.route('/:id')
+	.get(collegeController.getCollege)
+	.patch(collegeController.updateCollege)
+	.delete(collegeController.deleteCollege);
 
 export default router;

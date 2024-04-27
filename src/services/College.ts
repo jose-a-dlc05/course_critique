@@ -1,6 +1,6 @@
 import CollegeDatabaseObj from '../dao/Courses';
 
-interface CollegeInt {
+export interface CollegeInt {
 	name: string;
 	location: string;
 	description: string;
@@ -18,8 +18,7 @@ export default class CollegeService {
 	};
 	createCollege = async (data: CollegeInt) => {
 		try {
-			let { name, location, description } = data;
-			console.log({ name, location, description });
+			return await CollegeDAO.addNewCollege(data);
 		} catch (err) {
 			console.error(err);
 		}
@@ -31,18 +30,16 @@ export default class CollegeService {
 			console.error(err);
 		}
 	};
-	updateCollege = async (data: CollegeInt, id: string) => {
+	updateCollege = async (data: CollegeInt, id: number) => {
 		try {
-			let { name, location, description } = data;
-
-			console.log(`College with ID of ${id} updated`);
+			return await CollegeDAO.updatedCollege(data, id);
 		} catch (err) {
 			console.error(err);
 		}
 	};
-	deleteCollege = async (id: string) => {
+	deleteCollege = async (id: number) => {
 		try {
-			console.log(`College with ID of ${id} deleted`);
+			return await CollegeDAO.deleteCollege(id);
 		} catch (err) {
 			console.error(err);
 		}
