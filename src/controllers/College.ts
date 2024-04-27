@@ -21,7 +21,7 @@ export const getColleges = async (req: any, res: any) => {
 };
 export const getCollege = async (req: any, res: any) => {
 	try {
-		const id: string = req.params.id;
+		const id = parseInt(req.params.id);
 
 		return res.status(200).json(await CollegeService.getCollegeById(id));
 	} catch (err) {

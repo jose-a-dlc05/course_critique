@@ -24,9 +24,9 @@ export default class CollegeService {
 			console.error(err);
 		}
 	};
-	getCollegeById = async (id: string) => {
+	getCollegeById = async (id: number) => {
 		try {
-			console.log(`Getting college with ${id}`);
+			return await CollegeDAO.getCollegeById(id);
 		} catch (err) {
 			console.error(err);
 		}
