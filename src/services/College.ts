@@ -1,4 +1,4 @@
-import CollegeDatabaseObj from '../dao/Courses';
+import CollegeDatabaseObj from '../dao/College';
 
 export interface CollegeInt {
 	name: string;

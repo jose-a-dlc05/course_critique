@@ -3,6 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import './lib/env';
 import colleges from './routes/colleges';
+import courses from './routes/courses';
 
 // This is the point of entry
 const app: express.Express = express();
@@ -15,6 +16,7 @@ if ((process.env.NODE_ENV = 'development')) {
 }
 
 app.use('/api/v1/colleges', colleges);
+app.use('/api/v1/courses', courses);
 
 const PORT = process.env.PORT || 8000;
 
