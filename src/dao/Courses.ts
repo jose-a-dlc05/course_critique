@@ -1,28 +1,33 @@
 import { PrismaClient } from '@prisma/client';
-import { CollegeInt } from '../services/College';
-
 const prisma = new PrismaClient();
-export default class CollegeDAO {
-	getColleges = async () => {
+
+export default class CoursesDAO {
+	getCourses = async () => {
 		try {
-			return await prisma.colleges.findMany();
+			return await prisma.courses.findMany({
+				include: {
+					colleges: true,
+				},
+			});
 		} catch (err) {
 			console.error(err);
-			await prisma.$disconnect();
-			process.exit(1);
 		} finally {
 			await prisma.$disconnect();
 		}
 	};
-
-	getCollegeById = async (id: number) => {
+	getCourseById = async (id: number) => {
 		try {
-			return await prisma.colleges.findUniqueOrThrow({
-				where: { college_id: id },
+			return await prisma.courses.findUniqueOrThrow({
+				where: { course_id: id },
 				select: {
-					name: true,
-					location: true,
+					title: true,
 					description: true,
+					instructor: true,
+					colleges: {
+						select: {
+							name: true,
+						},
+					},
 				},
 			});
 		} catch (err) {
@@ -33,10 +38,9 @@ export default class CollegeDAO {
 			await prisma.$disconnect();
 		}
 	};
-
-	addNewCollege = async (data: CollegeInt) => {
+	addNewCourse = async (data: any) => {
 		try {
-			return await prisma.colleges.create({
+			return await prisma.courses.create({
 				data,
 			});
 		} catch (err) {
@@ -47,11 +51,10 @@ export default class CollegeDAO {
 			await prisma.$disconnect();
 		}
 	};
-
-	updatedCollege = async (data: CollegeInt, id: number) => {
+	updateCourse = async (data: any, id: number) => {
 		try {
-			return await prisma.colleges.update({
-				where: { college_id: id },
+			return await prisma.courses.update({
+				where: { course_id: id },
 				data,
 			});
 		} catch (err) {
@@ -62,11 +65,10 @@ export default class CollegeDAO {
 			await prisma.$disconnect();
 		}
 	};
-
-	deleteCollege = async (id: number) => {
+	deleteCourse = async (id: number) => {
 		try {
-			return await prisma.colleges.delete({
-				where: { college_id: id },
+			return await prisma.courses.delete({
+				where: { course_id: id },
 			});
 		} catch (err) {
 			console.error(err);

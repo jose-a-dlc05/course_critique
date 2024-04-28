@@ -1,4 +1,4 @@
-import CollegeDatabaseObj from '../dao/College';
+import CollegeDAO from '../dao/College';
 
 export interface CollegeInt {
 	name: string;
@@ -6,40 +6,41 @@ export interface CollegeInt {
 	description: string;
 }
 
-const CollegeDAO = new CollegeDatabaseObj();
+const collegeDAO = new CollegeDAO();
 
 export default class CollegeService {
+	constructor() {}
 	getColleges = async () => {
 		try {
-			return await CollegeDAO.getColleges();
+			return await collegeDAO.getColleges();
 		} catch (err) {
 			console.error(err);
 		}
 	};
 	createCollege = async (data: CollegeInt) => {
 		try {
-			return await CollegeDAO.addNewCollege(data);
+			return await collegeDAO.addNewCollege(data);
 		} catch (err) {
 			console.error(err);
 		}
 	};
 	getCollegeById = async (id: number) => {
 		try {
-			return await CollegeDAO.getCollegeById(id);
+			return await collegeDAO.getCollegeById(id);
 		} catch (err) {
 			console.error(err);
 		}
 	};
 	updateCollege = async (data: CollegeInt, id: number) => {
 		try {
-			return await CollegeDAO.updatedCollege(data, id);
+			return await collegeDAO.updatedCollege(data, id);
 		} catch (err) {
 			console.error(err);
 		}
 	};
 	deleteCollege = async (id: number) => {
 		try {
-			return await CollegeDAO.deleteCollege(id);
+			return await collegeDAO.deleteCollege(id);
 		} catch (err) {
 			console.error(err);
 		}

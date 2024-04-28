@@ -1,26 +1,30 @@
+import CoursesService from '../services/Courses';
+
+const coursesService = new CoursesService();
+
 export default class CoursesController {
 	createCourse = async (req: any, res: any) => {
 		try {
 			if (!req.body) {
 				return res.status(400).send({ message: 'There is no value' });
 			}
-			return res.status(201).send('createCourse called');
+			return res.status(201).json(await coursesService.createCourse(req.body));
 		} catch (err) {
 			return res.status(400).send(err);
 		}
 	};
 	getCourses = async (req: any, res: any) => {
 		try {
-			return res.status(200).send('getCourses API Called');
+			return res.status(200).json(await coursesService.getCourses());
 		} catch (err) {
 			return res.status(400).send(err);
 		}
 	};
-	getCourse = async (req: any, res: any) => {
+	getCourseById = async (req: any, res: any) => {
 		try {
 			const id = parseInt(req.params.id);
 
-			return res.status(200).send(`getCourse API called with id of ${id}`);
+			return res.status(200).json(await coursesService.getCourseById(id));
 		} catch (err) {
 			console.error(err);
 		}
@@ -32,16 +36,16 @@ export default class CoursesController {
 
 			return res
 				.status(200)
-				.send(
-					`updateCollege called with id of ${id} and the following data: ${postData}`
-				);
-		} catch (err) {}
+				.json(await coursesService.updateCourse(postData, id));
+		} catch (err) {
+			console.error(err);
+		}
 	};
 	deleteCourse = async (req: any, res: any) => {
 		try {
 			const id = parseInt(req.params.id);
 
-			return res.status(200).send(`deleteCollege called with id of ${id}`);
+			return res.status(200).json(await coursesService.deleteCourse(id));
 		} catch (err) {
 			console.error(err);
 		}

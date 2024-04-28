@@ -11,7 +11,7 @@ router
 
 router
 	.route('/:id')
-	.get(courseController.getCourse)
+	.get(courseController.getCourseById)
 	.patch(courseController.updateCourse)
 	.delete(courseController.deleteCourse);
 
